@@ -27,11 +27,14 @@ class ExamModel extends Model
 
   public function addOne($data)
   {
-    $req = $this->db->prepare("INSERT INTO examens (matiere,note) VALUES (:matiere,:note) WHERE id=:id");
-    $req->bindParam(':matiere', $data['matiere']);
+    $req = $this->db->prepare("UPDATE examens SET matiere=:matiere, note=:note WHERE id=:id");
+    $req->bindParam(':matiere', $data['matiere'], \PDO::PARAM_STR);
     $req->bindParam(':note', $data['note']);
-    $req->bindParam(':id', $data['id']);
-
+    $req->bindParam(':id', $data['id'], \PDO::PARAM_INT);
     $req->execute();
+
+    $exam = $this->getOne($data['id']);
+
+    return $exam;
   }
 }

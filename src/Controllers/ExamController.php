@@ -19,7 +19,7 @@ class ExamController extends Controller
     $data = $_POST;
     $data['id'] = $id;
 
-    if ($data['matiere'] != 1 || $data['matiere'] != 2) {
+    if ($data['matiere'] != 'Histoire-Geographie' && $data['matiere'] != 'Mathématiques') {
       $error = 'La matiere n\'est pas valide';
       $data['error'] = $error;
 
@@ -30,5 +30,9 @@ class ExamController extends Controller
 
       return $this->render('Exam/edit', $data);
     };
+
+    $exam = (new ExamModel())->addOne($data);
+
+    (new StudentController())->one($exam['id_etudiant']);
   }
 }
