@@ -24,4 +24,14 @@ class ExamModel extends Model
     $req = $this->db->query("SELECT * FROM examens WHERE id=$id", \PDO::FETCH_ASSOC)->fetch();
     if (!empty($req)) return $req;
   }
+
+  public function addOne($data)
+  {
+    $req = $this->db->prepare("INSERT INTO examens (matiere,note) VALUES (:matiere,:note) WHERE id=:id");
+    $req->bindParam(':matiere', $data['matiere']);
+    $req->bindParam(':note', $data['note']);
+    $req->bindParam(':id', $data['id']);
+
+    $req->execute();
+  }
 }
