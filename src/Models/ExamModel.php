@@ -37,4 +37,15 @@ class ExamModel extends Model
 
     return $exam;
   }
+
+  public function deleteOne($id)
+  {
+    $exam = $this->getOne($id);
+
+    $req = $this->db->prepare("DELETE FROM examens WHERE id=:id");
+    $req->bindParam(':id', $id);
+    $req->execute;
+
+    return $exam;
+  }
 }

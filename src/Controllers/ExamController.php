@@ -35,4 +35,11 @@ class ExamController extends Controller
 
     (new StudentController())->one($exam['id_etudiant']);
   }
+
+  public function delete($id)
+  {
+    $exam = (new ExamModel())->deleteOne($id);
+
+    (new StudentController())->one($exam['id_etudiant']);
+  }
 }
