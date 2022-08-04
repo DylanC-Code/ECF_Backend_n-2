@@ -18,7 +18,7 @@
         <tr>
           <td class="pl-8 py-1"><?= $value ?></td>
           <td class="pl-8 py-1"><?= $data['notes'][$key] ?></td>
-          <td class="pl-8 py-1"><a href="exams/edit/<?= $data['idexams'][$key] ?>" class='block w-2/3 text-center bg-purple-400 rounded-lg'>Edit</a></td>
+          <td class="pl-8 py-1"><a href="/exams/edit/<?= $data['idexams'][$key] ?>" class='block w-2/3 text-center bg-purple-400 rounded-lg'>Edit</a></td>
         </tr>
       <?php } ?>
     </tbody>

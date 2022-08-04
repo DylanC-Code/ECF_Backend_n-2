@@ -16,7 +16,7 @@ class StudentModel extends Model
     $req = $this->db->query("SELECT * FROM `etudiants` as et INNER JOIN examens as ex ON ex.id_etudiant = et.id_etudiant WHERE et.id_etudiant=$id", \PDO::FETCH_ASSOC)->fetchAll();
     $req[0]['matieres'] = [$req[0]['matiere'], $req[1]['matiere']];
     $req[0]['notes'] = [$req[0]['note'], $req[1]['note']];
-    $req[0]['idexams'] = [$req[0]['id_examen'], $req[1]['id_examen']];
+    $req[0]['idexams'] = [$req[0]['id'], $req[1]['id']];
 
     unset($req[0]['matiere'], $req[0]['note'], $req[0]['idexam']);
 

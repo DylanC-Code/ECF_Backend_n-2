@@ -2,7 +2,6 @@
 
 namespace App\Controllers;
 
-use App\Models\ExamModel;
 use App\Models\StudentModel;
 
 class StudentController extends Controller

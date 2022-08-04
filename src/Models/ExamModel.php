@@ -18,4 +18,10 @@ class ExamModel extends Model
 
     if (!empty($req)) return $req;
   }
+
+  public function getOne(int $id)
+  {
+    $req = $this->db->query("SELECT * FROM examens WHERE id=$id", \PDO::FETCH_ASSOC)->fetch();
+    if (!empty($req)) return $req;
+  }
 }
