@@ -11,14 +11,17 @@ class StudentController extends Controller
   {
   }
 
-  public function getOne($id)
+  public function one($id)
   {
+    $student = (new StudentModel())->getOne($id);
+
+    $this->render('/Student/show', $student);
   }
 
   public function all()
   {
     $students = (new StudentModel())->getAll('etudiants');
 
-    $this->render('Students', $students);
+    $this->render('/Student/index', $students);
   }
 }
