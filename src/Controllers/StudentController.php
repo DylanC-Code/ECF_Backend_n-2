@@ -2,10 +2,10 @@
 
 namespace App\Controllers;
 
-use App\Database\Db;
+use App\Models\ExamModel;
 use App\Models\StudentModel;
 
-class StudentController
+class StudentController extends Controller
 {
   function __construct()
   {
@@ -18,6 +18,7 @@ class StudentController
   public function all()
   {
     $students = (new StudentModel())->getAll('etudiants');
-    var_dump($students);
+
+    $this->render('Students', $students);
   }
 }

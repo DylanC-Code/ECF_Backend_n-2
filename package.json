@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "postcss ./src/Public/assets/css/input.css -o ./src/Public/assets/css/output.css -w"
   },
   "repository": {
     "type": "git",
@@ -16,5 +16,11 @@
   "bugs": {
     "url": "https://github.com/DylanC-Code/ECF_Backend/issues"
   },
-  "homepage": "https://github.com/DylanC-Code/ECF_Backend#readme"
+  "homepage": "https://github.com/DylanC-Code/ECF_Backend#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.4.8",
+    "postcss": "^8.4.14",
+    "postcss-cli": "^10.0.0",
+    "tailwindcss": "^3.1.7"
+  }
 }
