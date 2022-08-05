@@ -10,7 +10,15 @@
 </head>
 
 <body class="bg-sky-100">
-  <header class="h-[10vh]"></header>
+  <header class="h-[10vh]">
+    <nav class="flex">
+      <h1>Rechercher un eleve par son nom ou son prenom</h1>
+      <form action="get">
+        <input type="text" name="search">
+        <button type="submit">Chercher</button>
+      </form>
+    </nav>
+  </header>
 
   <main class="min-h-[80vh] mb-8">
     <?= $content ?>
