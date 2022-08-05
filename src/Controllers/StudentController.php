@@ -12,7 +12,7 @@ class StudentController extends Controller
 
   public function one($id)
   {
-    $student = (new StudentModel())->getOne($id);
+    $student = (new StudentModel())->getOneWithNote($id);
 
     $this->render('/Student/show', $student);
   }
@@ -22,5 +22,19 @@ class StudentController extends Controller
     $students = (new StudentModel())->getAll('etudiants');
 
     $this->render('/Student/index', $students);
+  }
+
+  public function form($id)
+  {
+    $student = (new StudentModel())->getOne($id);
+
+    $this->render('/Student/edit', $student);
+  }
+
+  public function delete($id)
+  {
+    $student = (new StudentModel())->deleteOne($id);
+
+    header('Location:/students');
   }
 }

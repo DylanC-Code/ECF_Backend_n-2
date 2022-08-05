@@ -13,6 +13,18 @@ class StudentModel extends Model
 
   public function getOne($id)
   {
+    $req = $this->db->prepare("SELECT * FROM etudiants WHERE id_etudiant=:id");
+    $req->bindParam(":id", $id);
+    $req->execute();
+    $req = $req->fetch(\PDO::FETCH_ASSOC);
+
+    if (isset($req)) return $req;
+
+    throw new \Exception("Etudiants '$id' isn't found !");
+  }
+
+  public function getOneWithNote($id)
+  {
     $req = $this->db->prepare("SELECT et.id_etudiant ,et.prenom,et.nom, GROUP_CONCAT(ex.matiere SEPARATOR '~') as matieres, GROUP_CONCAT(ex.note SEPARATOR '~') as notes, GROUP_CONCAT(ex.id SEPARATOR '~') as ids FROM `etudiants` as et INNER JOIN examens as ex ON ex.id_etudiant=et.id_etudiant WHERE et.id_etudiant=:id");
     $req->bindParam(':id', $id, \PDO::PARAM_INT);
     $req->execute();
@@ -33,5 +45,12 @@ class StudentModel extends Model
     if (!empty($req)) return $req;
 
     throw new \Exception("Etudiants is empty");
+  }
+
+  public function deleteOne(int $id)
+  {
+    $req = $this->db->prepare("DELETE FROM etudiants WHERE id_etudiant=:id");
+    $req->bindParam(":id", $id);
+    $req->execute();
   }
 }
