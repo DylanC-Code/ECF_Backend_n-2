@@ -17,7 +17,7 @@
 
     <fieldset>
       <button type="submit">Editer</button>
-      <a href="/students/delete/:id">Supprimer</a>
+      <a href="/students/delete/<?= $data['id_etudiant'] ?>">Supprimer</a>
     </fieldset>
   </form>
 </section>

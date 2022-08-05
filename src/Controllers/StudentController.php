@@ -33,7 +33,7 @@ class StudentController extends Controller
 
   public function delete($id)
   {
-    $student = (new StudentModel())->deleteOne($id);
+    (new StudentModel())->deleteOne($id);
 
     header('Location:/students');
   }
