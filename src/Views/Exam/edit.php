@@ -4,8 +4,8 @@
   <fieldset class="flex my-8 border-2 border-black w-2/4 h-[12vh] p-4">
     <legend class="w-[200px] px-8">Changer la matiere</legend>
     <select name="matiere" value="<?= $data['matiere'] ?>">Changer matière
-      <option value="Histoire-Geographie">Histoire-Geographie</option>
-      <option value="Mathématiques">Mathématiques</option>
+      <option value="Histoire-Geographie" <?php if ($data['matiere'] == 'Histoire-Geographie') echo 'selected' ?>>Histoire-Geographie</option>
+      <option value="Mathématiques" <?php if ($data['matiere'] == 'Mathématiques') echo 'selected' ?>>Mathématiques</option>
     </select>
   </fieldset>
 

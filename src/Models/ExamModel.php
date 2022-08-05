@@ -44,7 +44,7 @@ class ExamModel extends Model
 
     $req = $this->db->prepare("DELETE FROM examens WHERE id=:id");
     $req->bindParam(':id', $id);
-    $req->execute;
+    $req->execute();
 
     return $exam;
   }
