@@ -8,6 +8,7 @@ class StudentController extends Controller
 {
   function __construct()
   {
+    $this->page = isset($_GET['page']) ? $_GET['page'] : 0;
   }
 
   public function one($id)
@@ -19,9 +20,10 @@ class StudentController extends Controller
 
   public function all()
   {
-    $students = (new StudentModel())->getAll('etudiants');
+    $students = (new StudentModel($this->page))->getAll('etudiants');
 
-    $this->render('/Student/index', $students);
+    $result = $this->pagination($students, $this->page);
+    $this->render('/Student/index', $result);
   }
 
   public function form($id)
