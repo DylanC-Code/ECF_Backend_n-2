@@ -62,4 +62,32 @@ class StudentModel extends Model
     $req->bindParam(':id', $data['id']);
     $req->execute();
   }
+
+  public function getByName(string $name)
+  {
+    $name = "%$name%";
+    $req = $this->db->prepare("SELECT GROUP_CONCAT(id_etudiant SEPARATOR '~') as ids FROM etudiants WHERE nom LIKE :name OR prenom LIKE :name");
+    $req->bindValue(':name', $name);
+    $req->execute();
+    $req = $req->fetch(\PDO::FETCH_ASSOC);
+
+    if (empty($req)) throw new \Exception("Etudiants isn't found");
+
+    return $this->getAllById(explode('~', $req['ids']));
+  }
+
+  public function getAllById(array $ids)
+  {
+    $students = [];
+    foreach ($ids as $id) {
+      $req = $this->db->prepare("SELECT et.id_etudiant as id, et.nom, et.prenom, AVG(ex.note) as avg FROM `etudiants` as et INNER JOIN examens as ex ON et.id_etudiant =ex.id_etudiant WHERE et.id_etudiant=:id GROUP BY ex.id_etudiant");
+      $req->bindParam(':id', $id);
+      $req->execute();
+      $req = $req->fetch(\PDO::FETCH_ASSOC);
+
+      array_push($students, $req);
+    }
+
+    if (!empty($students)) return $students;
+  }
 }

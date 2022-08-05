@@ -13,8 +13,8 @@
   <header class="h-[10vh]">
     <nav class="flex">
       <h1>Rechercher un eleve par son nom ou son prenom</h1>
-      <form action="get">
-        <input type="text" name="search">
+      <form action="/students/search" method="post">
+        <input type="text" name="name">
         <button type="submit">Chercher</button>
       </form>
     </nav>

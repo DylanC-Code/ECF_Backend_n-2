@@ -46,4 +46,13 @@ class StudentController extends Controller
     (new StudentModel())->editOne($data);
     header("Location:/students/edit/$id");
   }
+
+  public function search()
+  {
+    $name = $_POST['name'];
+
+    $students = (new StudentModel())->getByName($name);
+
+    $this->render('/Student/index', $students);
+  }
 }

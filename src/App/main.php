@@ -3,6 +3,7 @@
 $router = new App\Router\Router($_GET['url']);
 
 $router->get('/students', 'Student~all');
+$router->post('/students/search', 'Student~search');
 $router->get('/students/show/:id', 'Student~one');
 $router->get('/students/edit/:id', 'Student~form');
 $router->post('/students/edit/:id', 'Student~edit');
