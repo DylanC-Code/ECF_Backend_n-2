@@ -38,6 +38,6 @@ class Router
 
     foreach ($this->routes[$method] as $route) if ($route->match($this->url)) return $route->call();
 
-    throw new Exception('No route match this url : ' . $this->url);
+    header('Location:/students');
   }
 }
