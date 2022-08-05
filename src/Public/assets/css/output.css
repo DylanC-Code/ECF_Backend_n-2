@@ -514,21 +514,6 @@ video {
 .absolute {
   position: absolute;
 }
-.relative {
-  position: relative;
-}
-.top-8 {
-  top: 2rem;
-}
-.left-8 {
-  left: 2rem;
-}
-.top-12 {
-  top: 3rem;
-}
-.left-12 {
-  left: 3rem;
-}
 .top-10 {
   top: 2.5rem;
 }
@@ -539,10 +524,6 @@ video {
   margin-left: auto;
   margin-right: auto;
 }
-.my-2 {
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-}
 .my-8 {
   margin-top: 2rem;
   margin-bottom: 2rem;
@@ -550,10 +531,6 @@ video {
 .my-10 {
   margin-top: 2.5rem;
   margin-bottom: 2.5rem;
-}
-.my-4 {
-  margin-top: 1rem;
-  margin-bottom: 1rem;
 }
 .ml-auto {
   margin-left: auto;
@@ -570,6 +547,9 @@ video {
 .h-\[15vh\] {
   height: 15vh;
 }
+.h-\[50px\] {
+  height: 50px;
+}
 .h-\[40px\] {
   height: 40px;
 }
@@ -582,14 +562,14 @@ video {
 .h-\[60px\] {
   height: 60px;
 }
-.h-\[50px\] {
-  height: 50px;
-}
 .h-\[30px\] {
   height: 30px;
 }
 .min-h-\[80vh\] {
   min-height: 80vh;
+}
+.w-\[50px\] {
+  width: 50px;
 }
 .w-1\/5 {
   width: 20%;
@@ -611,9 +591,6 @@ video {
 }
 .w-2\/3 {
   width: 66.666667%;
-}
-.w-\[50px\] {
-  width: 50px;
 }
 .w-\[30px\] {
   width: 30px;
@@ -707,11 +684,11 @@ video {
 .p-2 {
   padding: 0.5rem;
 }
-.p-4 {
-  padding: 1rem;
-}
 .p-8 {
   padding: 2rem;
+}
+.p-4 {
+  padding: 1rem;
 }
 .py-6 {
   padding-top: 1.5rem;
@@ -740,14 +717,14 @@ video {
 .pl-4 {
   padding-left: 1rem;
 }
+.pb-8 {
+  padding-bottom: 2rem;
+}
 .pl-8 {
   padding-left: 2rem;
 }
 .pl-14 {
   padding-left: 3.5rem;
-}
-.pb-8 {
-  padding-bottom: 2rem;
 }
 .text-left {
   text-align: left;
@@ -758,10 +735,6 @@ video {
 .text-4xl {
   font-size: 2.25rem;
   line-height: 2.5rem;
-}
-.text-xl {
-  font-size: 1.25rem;
-  line-height: 1.75rem;
 }
 .text-2xl {
   font-size: 1.5rem;
@@ -804,6 +777,18 @@ video {
   text-align: center;
   font-size: 1.875rem;
   line-height: 2.25rem;
+}
+
+.input {
+  display: block;
+  width: 60%;
+  border-radius: 0.5rem;
+  --tw-bg-opacity: 1;
+  background-color: rgb(54 48 74 / var(--tw-bg-opacity));
+  padding: 0.5rem;
+  padding-left: 1rem;
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
 .hover\:bg-\[\#808080\]\/20:hover {

@@ -5,9 +5,13 @@
 }
 
 .button {
-  @apply block bg-[#36304a] w-[120px] text-center py-1 rounded-xl font-medium text-white
+  @apply block bg-[#36304a] w-[120px] text-center py-1 rounded-xl font-medium text-white;
 }
 
-.title{
-  @apply text-3xl text-center
+.title {
+  @apply text-3xl text-center;
+}
+
+.input {
+  @apply block rounded-lg w-3/5 bg-[#36304a] p-2 pl-4 text-white;
 }
