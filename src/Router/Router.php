@@ -30,7 +30,7 @@ class Router
     $this->routes[$method][] = $route;
     return $route;
   }
-  
+
   public function run()
   {
     $method = $_SERVER['REQUEST_METHOD'];
@@ -38,6 +38,6 @@ class Router
 
     foreach ($this->routes[$method] as $route) if ($route->match($this->url)) return $route->call();
 
-    throw new Exception('No route match this url');
+    throw new Exception('No route match this url : ' . $this->url);
   }
 }

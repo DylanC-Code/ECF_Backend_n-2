@@ -18,15 +18,14 @@ class Controller
     require_once ROOT . DIRECTORY_SEPARATOR . "Views" . DIRECTORY_SEPARATOR . 'default.php';
   }
 
-  protected function pagination(array $result, int $index = 0)
+  protected function pagination(array $result, int $index = 1)
   {
-
     $page = ['l' => false, 'r' => false, 'index' => $index];
-    if ($index * 6 < count($result)) $page['r'] = true;
-    if ($index !== 0) $page['l'] = true;
+    if ($index * 6 < count($result) && count($result) > 6) $page['r'] = true;
+    if ($index !== 1) $page['l'] = true;
 
+    $index = $index == 1 ? $index - 1 : ($index - 1) * 6;
     $result = array_splice($result, $index, 6);
-
     return ['result' => $result, 'page' => $page];
   }
 }

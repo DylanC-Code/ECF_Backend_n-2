@@ -25,10 +25,10 @@
 
     <div class="flex justify-between w-2/3 mx-auto my-8">
       <?php if ($data['page']['l']) : ?>
-        <a href="/students?page=<?= $page['index'] - 1 ?>"><img class="w-[50px] rotate-180" src="src/Public/assets/static/arrow.svg" alt="arrow for next page"></a>
+        <a href="<?= $_SERVER['REDIRECT_URL'] ?>?page=<?= $page['index'] - 1 ?>"><img class="w-[50px] rotate-180" src="/src/Public/assets/static/arrow.svg" alt="arrow for next page"></a>
       <?php endif;
       if ($data['page']['r']) : ?>
-        <a href="/students?page=<?= $page['index'] + 1 ?>" class="ml-auto"><img class="w-[50px]" src="src/Public/assets/static/arrow.svg" alt="arrow for previous page"></a>
+        <a href="<?= $_SERVER['REDIRECT_URL'] ?>?page=<?= $page['index'] + 1 ?>" class="ml-auto"><img class="w-[50px]" src="/src/Public/assets/static/arrow.svg" alt="arrow for previous page"></a>
       <?php endif ?>
     </div>
   </section>

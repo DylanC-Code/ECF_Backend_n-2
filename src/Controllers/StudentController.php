@@ -8,7 +8,7 @@ class StudentController extends Controller
 {
   function __construct()
   {
-    $this->page = isset($_GET['page']) ? $_GET['page'] : 0;
+    $this->page = isset($_GET['page']) ? $_GET['page'] : 1;
   }
 
   public function one($id)
@@ -49,12 +49,20 @@ class StudentController extends Controller
     header("Location:/students/edit/$id");
   }
 
-  public function search()
+  public function search($name = null)
   {
-    $name = $_POST['name'];
-
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+      $name = $_POST['name'];
+      header("Location:/students/search/$name/page/1");
+    } elseif (isset($_GET['page'])) {
+      $page = $_GET['page'];
+      header("Location:/students/search/$name/page/$page");
+    }
     $students = (new StudentModel())->getByName($name);
 
-    $this->render('/Student/index', $students);
+    $page = explode('/', $_SERVER['REDIRECT_URL']);
+
+    $result = $this->pagination($students, intval(end($page)));
+    $this->render('/Student/index', $result);
   }
 }
