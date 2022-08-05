@@ -37,4 +37,13 @@ class StudentController extends Controller
 
     header('Location:/students');
   }
+
+  public function edit($id)
+  {
+    $data = $_POST;
+    $data['id'] = $id;
+
+    (new StudentModel())->editOne($data);
+    header("Location:/students/edit/$id");
+  }
 }

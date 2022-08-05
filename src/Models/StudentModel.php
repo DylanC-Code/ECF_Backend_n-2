@@ -53,4 +53,13 @@ class StudentModel extends Model
     $req->bindParam(":id", $id);
     $req->execute();
   }
+
+  public function editOne(array $data)
+  {
+    $req = $this->db->prepare("UPDATE etudiants SET prenom=:prenom, nom=:nom WHERE id_etudiant=:id");
+    $req->bindParam(':prenom', $data['prenom']);
+    $req->bindParam('nom', $data['nom']);
+    $req->bindParam(':id', $data['id']);
+    $req->execute();
+  }
 }

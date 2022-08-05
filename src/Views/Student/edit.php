@@ -5,14 +5,14 @@
     <h2 class="text-3xl"><?= $data['prenom'] ?> <?= $data['nom'] ?></h2>
   </div>
 
-  <form action="/students/edit/:id" method="post">
+  <form action="/students/edit/<?= $data['id_etudiant'] ?>" method="post">
     <fieldset>
       <legend>Changer prenom</legend>
-      <input type="text" value="<?= $data['prenom'] ?>">
+      <input name="prenom" type="text" value="<?= $data['prenom'] ?>">
     </fieldset>
     <fieldset>
       <legend>Changer nom</legend>
-      <input type="text" value="<?= $data['nom'] ?>">
+      <input name="nom" type="text" value="<?= $data['nom'] ?>">
     </fieldset>
 
     <fieldset>
