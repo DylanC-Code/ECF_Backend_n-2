@@ -3,3 +3,11 @@
 @tailwind utilities;
 @layer base {
 }
+
+.button {
+  @apply block bg-[#36304a] w-[120px] text-center py-1 rounded-xl font-medium text-white
+}
+
+.title{
+  @apply text-3xl text-center
+}

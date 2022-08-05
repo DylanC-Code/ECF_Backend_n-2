@@ -1,21 +1,27 @@
-<h1>Note n°<?= $data['id'] ?></h1>
-<p><?php if (isset($data['error'])) echo $data['error'] ?></p>
-<form action="/exams/edit/<?= $data['id'] ?>" method="post" class="w-2/4 mx-auto bg-white h-[30vh] px-8 flex justify-between flex-wrap">
-  <fieldset class="flex my-8 border-2 border-black w-2/4 h-[12vh] p-4">
-    <legend class="w-[200px] px-8">Changer la matiere</legend>
-    <select name="matiere" value="<?= $data['matiere'] ?>">Changer matière
-      <option value="Histoire-Geographie" <?php if ($data['matiere'] == 'Histoire-Geographie') echo 'selected' ?>>Histoire-Geographie</option>
-      <option value="Mathématiques" <?php if ($data['matiere'] == 'Mathématiques') echo 'selected' ?>>Mathématiques</option>
-    </select>
-  </fieldset>
+<section class="p-8">
+  <h1 class="title pb-8">Note n°<?= $data['id'] ?></h1>
+  <p><?php if (isset($data['error'])) echo $data['error'] ?></p>
 
-  <fieldset class="flex my-8 border-2 border-black w-1/4 p-4 h-[12vh]">
-    <legend class="block w-[200px] px-8">Mofidier la note</legend>
-    <input type="number" name="note" step="0.01" value="<?= $data['note'] ?>">
-  </fieldset>
+  <form action=""></form>
 
-  <fieldset class="w-full flex justify-around">
-    <button type="submit" class="">Modifier</button>
-    <a href="/exams/delete/<?= $data['id'] ?>">Supprimer</a>
-  </fieldset>
-</form>
+  <form action="/exams/edit/<?= $data['id'] ?>" method="POST" class="w-2/5 h-[50vh] mx-auto bg-white px-8 rounded-lg">
+    <h1 class="title py-8">Modifier ou supprimer l'élève</h1>
+    <fieldset class="flex my-8 p-4">
+      <label class="w-[200px] px-8 block">Changer la matiere</label>
+      <select name="matiere" value="<?= $data['matiere'] ?>" class="block">Changer matière
+        <option value="Histoire-Geographie" <?php if ($data['matiere'] == 'Histoire-Geographie') echo 'selected' ?>>Histoire-Geographie</option>
+        <option value="Mathématiques" <?php if ($data['matiere'] == 'Mathématiques') echo 'selected' ?>>Mathématiques</option>
+      </select>
+    </fieldset>
+
+    <fieldset class="flex my-8 p-4">
+      <label class="block w-[200px] px-8">Mofidier la note</label>
+      <input type="number" name="note" step="0.01" value="<?= $data['note'] ?>" class="block">
+    </fieldset>
+
+    <fieldset class="w-full flex justify-around">
+      <button type="submit" class="button">Modifier</button>
+      <a href="/exams/delete/<?= $data['id'] ?>" class="button">Supprimer</a>
+    </fieldset>
+  </form>
+</section>
