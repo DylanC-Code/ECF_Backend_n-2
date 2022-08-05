@@ -1,4 +1,4 @@
 RewriteEngine on
 
 RewriteCond ${REQUEST_FILENAME} !-f
-RewriteRule ^([\w\-\_\/]*)$ src/Public/index.php?url=$1 [QSA,L]
+RewriteRule ^([\w\-\_\/\s]*)$ src/Public/index.php?url=$1 [QSA,L]

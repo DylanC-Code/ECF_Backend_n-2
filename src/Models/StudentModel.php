@@ -42,7 +42,7 @@ class StudentModel extends Model
 
   public function getAll()
   {
-    $req = $this->db->query("SELECT et.id_etudiant as id, et.nom, et.prenom, AVG(ex.note) as avg FROM `etudiants` as et INNER JOIN examens as ex ON et.id_etudiant =ex.id_etudiant GROUP BY ex.id_etudiant",\PDO::FETCH_ASSOC)->fetchAll();
+    $req = $this->db->query("SELECT et.id_etudiant as id, et.nom, et.prenom, AVG(ex.note) as avg FROM `etudiants` as et INNER JOIN examens as ex ON et.id_etudiant =ex.id_etudiant GROUP BY ex.id_etudiant", \PDO::FETCH_ASSOC)->fetchAll();
 
     if (!empty($req)) return $req;
 
@@ -68,7 +68,7 @@ class StudentModel extends Model
   public function getByName(string $name)
   {
     $name = "%$name%";
-    $req = $this->db->prepare("SELECT GROUP_CONCAT(id_etudiant SEPARATOR '~') as ids FROM etudiants WHERE nom LIKE :name OR prenom LIKE :name");
+    $req = $this->db->prepare("SELECT GROUP_CONCAT(id_etudiant SEPARATOR '~') as ids FROM etudiants WHERE nom LIKE :name OR prenom LIKE :name OR CONCAT(nom,' ',prenom) LIKE :name OR CONCAT(prenom,' ',nom) LIKE :name");
     $req->bindValue(':name', $name);
     $req->execute();
     $req = $req->fetch(\PDO::FETCH_ASSOC);
